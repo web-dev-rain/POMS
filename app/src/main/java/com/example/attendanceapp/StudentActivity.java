@@ -59,7 +59,6 @@ public class StudentActivity extends AppCompatActivity {
 
     private void loadData() {
         Cursor cursor = dbHelper.getStudentTable(cid);
-        Log.i("1234567890", "loadData: "+cid); //???
         studentItems.clear();
         while (cursor.moveToNext()){
             long sid = cursor.getLong(cursor.getColumnIndex(DbHelper.S_ID));

@@ -49,7 +49,7 @@ public class MyDialog extends DialogFragment {
         Dialog dialog = null;
         if (getTag().equals(CLASS_ADD_DIALOG)) dialog = getAddClassDialog();
         if (getTag().equals(STUDENT_ADD_DIALOG)) dialog = getAddStudentDialog();
-        if (getTag().equals(CLASS_UPDATE_DIALOG)) dialog = getUpdateClassDialog();
+        // if (getTag().equals(CLASS_UPDATE_DIALOG)) dialog = getUpdateClassDialog();
         if (getTag().equals(STUDENT_UPDATE_DIALOG)) dialog = getUpdateStudentDialog();
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -71,7 +71,7 @@ public class MyDialog extends DialogFragment {
         name_edt.setHint("Студент");
         Button cancel = view.findViewById(R.id.cancel_btn);
         Button add = view.findViewById(R.id.add_btn);
-        add.setText("update");
+        add.setText("Обновить"); // update
         roll_edt.setText(roll+"");
         roll_edt.setEnabled(false);
         name_edt.setText(name);
@@ -92,7 +92,7 @@ public class MyDialog extends DialogFragment {
         builder.setView(view);
 
         TextView title = view.findViewById(R.id.titleDialog);
-        title.setText("Обновить");
+        //title.setText("Обновить");
 
         EditText class_edt = view.findViewById(R.id.est01);
         EditText subject_edt = view.findViewById(R.id.edt02);

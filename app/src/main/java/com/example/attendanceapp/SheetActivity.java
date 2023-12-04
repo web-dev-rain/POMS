@@ -1,10 +1,12 @@
 package com.example.attendanceapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 public class SheetActivity extends AppCompatActivity {
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,16 @@ public class SheetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sheet);
 
         showTable();
+    }
+
+    private void setToolbar() {
+        toolbar = findViewById(R.id.toolbar);
+        TextView title = toolbar.findViewById(R.id.title_toolbar);
+
+        ImageButton back = toolbar.findViewById(R.id.back);
+
+        back.setOnClickListener(v -> onBackPressed());
+
     }
 
     private void showTable() {
@@ -91,16 +104,6 @@ public class SheetActivity extends AppCompatActivity {
         }
         tableLayout.setShowDividers(TableLayout.SHOW_DIVIDER_MIDDLE);
     }
-
-//    private int getDayInMonth(String month) {
-//        int monthIndex = Integer.valueOf(month.substring(0, 1));
-//        int year = Integer.valueOf(month.substring(4));
-//
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.set(Calendar.MONTH, monthIndex);
-//        calendar.set(Calendar.YEAR, year);
-//        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-//    }
 
     private int getDayInMonth(String month) {
         int monthIndex = Integer.parseInt(month.substring(0, 2)) - 1;

@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 class DbHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 2; // prev 1
+    private static final int VERSION = 2;
 
     //class table
     private static final String CLASS_TABLE_NAME = "CLASS_TABLE";
@@ -184,6 +184,6 @@ class DbHelper extends SQLiteOpenHelper {
 
     Cursor getDistinctMonths(long cid){
         SQLiteDatabase database = this.getReadableDatabase();
-        return database.query(STATUS_TABLE_NAME,new String[]{DATE_KEY},C_ID+"="+cid,null,"substr("+DATE_KEY+",4,7)",null,null);//01.04.2020
+        return database.query(STATUS_TABLE_NAME,new String[]{DATE_KEY},C_ID+"="+cid,null,"substr("+DATE_KEY+",4,7)",null,null);
     }
 }

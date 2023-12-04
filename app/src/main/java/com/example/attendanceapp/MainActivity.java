@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         classItems.clear();
         while (cursor.moveToNext()){
-            int id = cursor.getInt(cursor.getColumnIndex(DbHelper.C_ID)); //error
+            int id = cursor.getInt(cursor.getColumnIndex(DbHelper.C_ID));
             String className = cursor.getString(cursor.getColumnIndex(DbHelper.CLASS_NAME_KEY));
             String subjectName = cursor.getString(cursor.getColumnIndex(DbHelper.SUBJECT_NAME_KEY));
 
@@ -108,27 +108,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case 0:
-                showUpdateDialog(item.getGroupId());
             case 1:
                 deleteClass(item.getGroupId());
 
         }
         return super.onContextItemSelected(item);
-    }
-
-    private void showUpdateDialog(int position) {
-        MyDialog dialog = new MyDialog();
-        dialog.show(getSupportFragmentManager(), MyDialog.CLASS_UPDATE_DIALOG);
-        dialog.setListener((className, subjectName)->updateClass(position, className, subjectName));
-
-    }
-
-    private void updateClass(int position, String className, String subjectName) {
-        dbHelper.updateClass(classItems.get(position).getCid(), className, subjectName);
-        classItems.get(position).setClassName(className);
-        classItems.get(position).setSubjectName(subjectName);
-        classAdapter.notifyItemChanged(position);
     }
 
     private void deleteClass(int position) {

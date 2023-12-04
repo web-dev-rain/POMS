@@ -45,7 +45,6 @@ class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder> {
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo contextMenuInfo) {
-            menu.add(getAdapterPosition(), 0, 0, "Изменить");
             menu.add(getAdapterPosition(), 1, 0, "Удалить");
         }
     }
